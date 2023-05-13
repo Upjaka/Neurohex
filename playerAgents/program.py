@@ -9,9 +9,9 @@ def main():
 	"""
 	interface = gtpinterface("treeNet")
 	while True:
-		command = raw_input()
+		command = input()
 		success, response = interface.send_command(command)
-		print "= " if success else "? ",response,"\n"
+		print("= " if success else "? ",response,"\n")
 		sys.stdout.flush()
 
 if __name__ == "__main__":
