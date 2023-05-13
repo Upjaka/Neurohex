@@ -9,7 +9,7 @@ from stateToInput import stateToInput
 import time
 import theano
 from theano import tensor as T
-import cPickle
+import pickle
 from math import sqrt, log
 
 EXPLORATION = 0.1
@@ -73,8 +73,8 @@ class treeNetAgent:
 	def __init__(self, state = gamestate(13)):
 		self.state = copy(state)
 		self.root = node()
-		f = file(os.path.dirname(os.path.realpath(__file__))+"/network.save", 'rb')
-		network = cPickle.load(f)
+		f = open(os.path.dirname(os.path.realpath(__file__))+"/network.save", 'rb')
+		network = pickle.load(f)
 		f.close()
 
 		input_state = T.tensor3('input_state')
